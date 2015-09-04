@@ -10,6 +10,7 @@ var Home = React.createClass({
         <ul>
           <li><Router.Link to="page1">page1</Router.Link></li>
           <li><Router.Link to="page2">page2</Router.Link></li>
+          <li><Router.Link to="search">search</Router.Link></li>
         </ul>
       </div>
       );

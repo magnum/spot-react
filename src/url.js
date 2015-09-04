@@ -1,1 +1,1 @@
-window.apiUrl = 'http://production.api.com';
+window.apiUrl = 'https://api.spotify.com/v1';

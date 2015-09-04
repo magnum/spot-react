@@ -11,6 +11,7 @@ var routes = (
     <DefaultRoute name="home" handler={require('./Home')} />
     <Route name="page1" path="page1/" handler={require('./Page1')}/>
     <Route name="page2" path="page2/" handler={require('./Page2')}/>
+    <Route name="search" path="search/" handler={require('./search/SearchPage')}/>
   </Route>);
   return routes;
 }
