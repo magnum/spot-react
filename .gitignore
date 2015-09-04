@@ -34,4 +34,3 @@ env
 .idea/**/*
 dist/
 .DS_Store
-
