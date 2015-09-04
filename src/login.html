@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootreact</title>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic" type="text/css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="url.js" ></script>
+  <!-- build:remove:build -->
+  <script type="text/javascript" src="devUrl.js" ></script>
+  <!-- /build -->
+</head>
+<body>
+  <form action="/login" method="POST">
+    Username: <input type="text" id="username" />
+    Username: <input type="password" id="password" />
+    <input id="login" type="button" name="Login" value="login" />
+  </form>
+
+  <script type="text/javascript">
+  $(function(){
+    var apiServer = window.apiUrl;
+
+    $.get(apiServer + '/', function(){
+      console.log('server is alive');
+    });
+
+    $('#login').click(function(){
+      var username = $('#username').val();
+      var password = $('#password').val();
+
+      var req = {username: username, password: password};
+      
+      //$.post(apiServer + '/authenticate', req, function(token){
+        var fakeToken = {success: true, username: 'fakeUser'};
+        if (fakeToken.success){
+          var stringToken = JSON.stringify(fakeToken);
+          localStorage.setItem('bootreact_token', stringToken);
+          window.location.pathname = "/index.html";
+        }
+        
+      //})
+
+    });
+
+  })
+  </script>
+</body>
+</html>

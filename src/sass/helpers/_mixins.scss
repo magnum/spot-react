@@ -1,0 +1,26 @@
+@mixin header-media-query($col1-name, $col2-name){
+	@media (min-width: #{$screen-sm}){
+		&__#{$col1-name}{
+			@include calc-grid-column(2, md, width);	
+		}
+		
+		&__#{$col2-name}{
+			@include calc-grid-column(10, md, width);
+		}
+		
+	}
+
+	// @media (min-width: #{$screen-lg-min}){
+	// 	&__#{$col1-name}{
+	// 		width: grid-calc(1, $total-columns);
+	// 	}
+
+	// 	&__#{$col2-name}{
+	// 		width: grid-calc(11, $total-columns);
+	// 	}
+	// }
+}
+
+@mixin color-opacity($color, $opacity: 0.3){
+	background: rgba($color, $opacity);
+}

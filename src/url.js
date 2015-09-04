@@ -1,0 +1,1 @@
+window.apiUrl = 'http://production.api.com';
