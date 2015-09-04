@@ -33,7 +33,7 @@
       var req = {username: username, password: password};
       
       //$.post(apiServer + '/authenticate', req, function(token){
-        var fakeToken = {success: true, username: 'fakeUser'};
+        var fakeToken = {success: true, username: 'fakeUser', token: '123456'};
         if (fakeToken.success){
           var stringToken = JSON.stringify(fakeToken);
           localStorage.setItem('bootreact_token', stringToken);
