@@ -1,5 +1,7 @@
 var request = require("superagent");
+
 var token = JSON.parse(localStorage.getItem('bootreact_token'));
+//request.set('x-access-token', token.token);
 
 var api = function (){
   var baseUrl = window.apiUrl || 'https://api.spotify.com/v1';
@@ -14,33 +16,28 @@ var api = function (){
   return {
     del: function(path, fn) {
       var req = request
-        .del(baseUrl + path)
-        .set('x-access-token', token.token);
+        .del(baseUrl + path);
       return processCallback(req, fn);
     },
     get: function(path, fn) {
       var req = request
         .get(baseUrl + path)
-        .set('x-access-token', token.token)
         .set('Accept', 'application/json');
       return processCallback(req, fn);
     },
     patch: function(path, data, fn) {
       var req = request
-        .patch(baseUrl + path, data)
-        .set('x-access-token', token.token);
+        .patch(baseUrl + path, data);
       return processCallback(req, fn);
     },
     post: function(path, data, fn) {
       var req = request
-        .post(baseUrl + path, data)
-        .set('x-access-token', token.token);
+        .post(baseUrl + path, data);
       return processCallback(req, fn);
     },
     put: function(path, data, fn) {
       var req = request
-        .put(baseUrl + path, data)
-        .set('x-access-token', token.token);
+        .put(baseUrl + path, data);
       return processCallback(req, fn);
     }
   };

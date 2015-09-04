@@ -10,7 +10,7 @@ var SearchStore = createStore({
 });
 
 var actionMap = {
-  'SEARCH_COMPLETED': function(artists){ console.log('store', artists); currentState = artists; }
+  'SEARCH_COMPLETED': function(artists){ currentState = artists; }
 };
 
 dispatcher.registerActions(actionMap, SearchStore);

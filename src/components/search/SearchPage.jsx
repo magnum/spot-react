@@ -1,6 +1,7 @@
 var React = require('react');
 var SearchActions = require('./SearchActions');
 var SearchStore = require('./SearchStore');
+var _ = require('lodash');
 
 var SearchPage = React.createClass({
   getInitialState: function() {
@@ -23,9 +24,27 @@ var SearchPage = React.createClass({
     SearchActions.search('pink floyd');
   },
   render: function() {
+    var artists = this.state.artists.map(function(a){
+      var imgUrl;
+      if (a.images.length > 0){
+        imgUrl = _.min(a.images, 'width').url;
+      }
+      return (
+        <li>
+          <img src={imgUrl}  />
+          {a.name}
+        </li>);
+    });
     return (
       <div>
-        <button onClick={this.searchClicked}>search</button>
+        <div className="row">
+          <button onClick={this.searchClicked}>search</button>
+        </div>
+        <div className="row">
+          <ul>
+            {artists}
+          </ul>
+        </div>
       </div>
     );
   }
