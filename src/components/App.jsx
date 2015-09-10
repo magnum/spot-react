@@ -10,7 +10,7 @@ if (!localStorage.getItem('bootreact_token')){
 var App = React.createClass({
   render: function () {
     return (
-      <div className="container-fluid">
+      <div>
         <RouteHandler/>
       </div>
     );
@@ -18,5 +18,5 @@ var App = React.createClass({
 });
 
 ReactRouter.run(Routes(App), function (Handler) {
-  React.render(<Handler/>, document.body);
+  React.render(<Handler/>, document.getElementById('container'));
 });
