@@ -15,7 +15,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-processhtml');
-  
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     connect: {
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
           { expand: true, cwd: 'src/vendor/font-awesome/fonts/', src: '*', dest: 'dist/fonts' },
           { expand: true, cwd: 'src/images/', src: '*', dest: 'dist/images' }
         ]
-      }, 
+      },
     },
     babel: {
       options: {
@@ -145,6 +145,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', ['clean', 'jshint', 'sass', 'babel', 'copy:assets', 'browserify', 'connect', 'watch']);
-  grunt.registerTask('test', ['env:test','run:prepare_seeds', 'run:seed_db', 'clean', 'mochaTest']);
   grunt.registerTask('build', ['clean', 'jshint', 'sass', 'babel', 'copy:assets', 'browserify', 'uglify', 'cssmin', 'processhtml:build']);
 };

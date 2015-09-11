@@ -3,6 +3,7 @@ var SearchActions = require('./SearchActions');
 var SearchStore = require('./SearchStore');
 var _ = require('lodash');
 var SearchBox = require('./SearchBox');
+var ArtistList = require('./ArtistList');
 
 var SearchPage = React.createClass({
   getInitialState: function() {
@@ -36,30 +37,5 @@ var SearchPage = React.createClass({
     );
   }
 });
-
-var ArtistList = React.createClass({
-  render: function() {
-    var artists = this.props.list.map(function(a){
-      return <Artist key={a.name} info={a} />
-    });
-    return (
-      <ul>
-        {artists}
-      </ul>
-    );
-  }
-});
-
-var Artist = React.createClass({
-  render: function() {
-    var artist = this.props.info;
-    return (
-      <li>
-       {artist.name}
-      </li>
-    );
-  }
-});
-
 
 module.exports = SearchPage;

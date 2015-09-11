@@ -1,7 +1,7 @@
 {
-  "name": "Bootreact",
+  "name": "spot-react",
   "version": "2.0.0",
-  "description": "A starter kit for React.js applications",
+  "description": "A sample React.js application that uses Spotify API as backend",
   "main": "./bin/www",
   "scripts": {
     "test": "jest",

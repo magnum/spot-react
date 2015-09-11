@@ -1,11 +1,11 @@
 var request = require("superagent");
 
-var token = JSON.parse(localStorage.getItem('bootreact_token'));
+var token = JSON.parse(localStorage.getItem('spotreact_token'));
 //request.set('x-access-token', token.token);
 
 var api = function (){
   var baseUrl = window.apiUrl || 'https://api.spotify.com/v1';
-  
+
   function processCallback(req, fn){
     if (typeof fn == 'function'){
       return req.end(fn);
