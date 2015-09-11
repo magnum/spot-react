@@ -9,8 +9,7 @@ var Artist = React.createClass({
     if (artist.images.length > 0){
       image = _.min(artist.images, 'width').url;
     }
-    console.log(artist);
-
+    
     return (
       <li>
         <div>

@@ -1,3 +1,3 @@
-#Bootreact
+#Spot-react
 
-This is just another starting template for a react web application.
+This is just a sample app
