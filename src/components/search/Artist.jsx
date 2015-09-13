@@ -9,15 +9,12 @@ var Artist = React.createClass({
     if (artist.images.length > 0){
       image = _.min(artist.images, 'width').url;
     }
-    
-    return (
-      <li>
-        <div>
-            <img src={image} className="img-thumbnail" />
-            <span><Link to="artist-details" params={{id: artist.id}}> {artist.name}</Link></span>
-        </div>
 
-      </li>
+    return (
+        <div>
+          <img src={image} className="img-thumbnail" />
+          <span><Link to="artist-details" params={{id: artist.id}}> {artist.name}</Link></span>
+        </div>
     );
   }
 });

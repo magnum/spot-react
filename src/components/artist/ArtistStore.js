@@ -14,12 +14,8 @@ var ArtistStore = createStore({
 });
 
 var actionMap = {
-  'LOAD_ARTIST_COMPLETED': function(artist){
-    currentArtist = artist;
-  },
-  LOAD_ALBUMS_COMPLETED: function(albums){
-    currentArtistAlbums = albums;
-  }
+  'LOAD_ARTIST_COMPLETED': function(artist){ currentArtist = artist; },
+  'LOAD_ALBUMS_COMPLETED': function(albums){ currentArtistAlbums = albums; }
 };
 
 dispatcher.registerActions(actionMap, ArtistStore);

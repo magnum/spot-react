@@ -13,7 +13,7 @@ module.exports = {
     });
   },
   loadArtistAlbums: function(id){
-    api.get('/artists/' + id + '/albums', function(err, res){
+    api.get('/artists/' + id + '/albums?limit=50', function(err, res){
       serverActions.loadAlbumsCompleted(res.body.items);
     });
   }
