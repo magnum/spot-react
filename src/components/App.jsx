@@ -3,10 +3,6 @@ var ReactRouter = require('react-router');
 var Routes = require('./Routes');
 var RouteHandler = ReactRouter.RouteHandler;
 
-if (!localStorage.getItem('spotreact_token')){
-  window.location.pathname = "/login.html";
-}
-
 var App = React.createClass({
   render: function () {
     return (
