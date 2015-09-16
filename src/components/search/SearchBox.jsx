@@ -13,7 +13,7 @@ var SearchBox = React.createClass({
         <div className="form-group col-xs-10">
           <input className="form-control" type="text" ref="artist" />
         </div>
-        <button className="btn btn-primary" onClick={this.onSearch}>search</button>
+        <button className="btn btn-primary" onClick={this.onSearch}><i className="fa fa-search"></i></button>
       </form>
     );
   }
