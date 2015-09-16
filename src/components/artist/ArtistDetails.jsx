@@ -19,7 +19,7 @@ var ArtistDetails = React.createClass({
     ArtistActions.loadArtistAlbums(id);
   },
   componentWillUnmount: function() {
-    ArtistStore.removeListener(this.onStoreChanged);
+    ArtistStore.removeListener('changed', this.onStoreChanged);
   },
   onStoreChanged: function(){
     var artist = ArtistStore.getArtist();
