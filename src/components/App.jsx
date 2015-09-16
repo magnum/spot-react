@@ -3,6 +3,9 @@ var ReactRouter = require('react-router');
 var Routes = require('./Routes');
 var RouteHandler = ReactRouter.RouteHandler;
 
+//require('../sass/style.scss');
+require('!style!css!sass!../sass/style.scss');
+
 var App = React.createClass({
   render: function () {
     return (

@@ -1,1 +1,0 @@
-window.apiUrl = 'https://api.spotify.com/v1';
