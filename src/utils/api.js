@@ -1,4 +1,4 @@
-var request = require("superagent");
+var request = require('superagent');
 
 var token = JSON.parse(localStorage.getItem('spotreact_token'));
 //request.set('x-access-token', token.token);

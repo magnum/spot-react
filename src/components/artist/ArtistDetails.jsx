@@ -30,7 +30,7 @@ var ArtistDetails = React.createClass({
     return (
       <div>
         <div className="row">
-          <Artist info={this.state.artist} big={true} />
+          <Artist info={this.state.artist} big />
         </div>
         <div className="row">
           <ul>
