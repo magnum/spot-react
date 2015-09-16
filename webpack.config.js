@@ -10,7 +10,7 @@ module.exports = {
       './src/index.html'
     ],
     plugins: [
-      new ExtractTextPlugin('style.scss')
+      new ExtractTextPlugin('app.css', {allChunks: true})
     ],
     output: {
         filename: '/js/app.js',
@@ -28,10 +28,10 @@ module.exports = {
         loaders: ['react-hot', 'babel'],
         include: path.join(__dirname, 'src')
       },{
-        test: /\.scss$/, // Only .css files
-        loader: ExtractTextPlugin.extract("style","css!scss")
-        //loaders: ['style', 'css', 'sass'],
-        //include: path.join(__dirname, 'src')
+        test: /\.scss$/,
+        //loader: 'style!css!sass'
+        loader: ExtractTextPlugin.extract('style!css!sass')
+
       },{
         test: /\.(woff|woff2|eot|svg|ttf)$/,
         loader: 'url?limit=10000000'
