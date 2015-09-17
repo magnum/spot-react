@@ -1,19 +1,22 @@
-var React = require('react');
+import React from 'react';
 
-var SearchBox = React.createClass({
-  getInitialState: function() {
-    return { value: '' };
-  },
-  onSearch: function(){
-    var artist = this.state.value;
+export default class SearchBox extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = { value: ''};
+    this.onSearch = this.onSearch.bind(this);
+    this.onChange = this.onChange.bind(this);
+
+  }
+  onSearch(){
     if (typeof this.props.onSearchCallback == 'function'){
-      this.props.onSearchCallback(artist);
+      this.props.onSearchCallback(this.state.value);
     }
-  },
-  onChange: function(event) {
-    this.setState({value: event.target.value});
-  },
-  render: function() {
+  }
+  onChange(evt){
+    this.setState({value: evt.target.value});
+  }
+  render() {
     var isDisabled = this.state.value == '';
     return (
       <form>
@@ -24,7 +27,4 @@ var SearchBox = React.createClass({
       </form>
     );
   }
-});
-
-
-module.exports = SearchBox;
+};
