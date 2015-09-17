@@ -1,30 +1,32 @@
-var React = require('react');
-var SearchActions = require('./SearchActions');
-var SearchStore = require('./SearchStore');
-var _ = require('lodash');
-var SearchBox = require('./SearchBox');
-var ArtistList = require('./ArtistList');
+import React from 'react';
+import SearchActions from './SearchActions';
+import SearchStore from './SearchStore';
+import _ from 'lodash';
+import SearchBox from './SearchBox';
+import ArtistList from './ArtistList';
 
-var SearchPage = React.createClass({
-  getInitialState: function() {
-    return {
-      artists: []
-    };
-  },
-  componentDidMount: function() {
+export default class SearchPage extends React.Component{
+  constructor(props)
+  {
+    super(props)
+    this.state = {artists: []};
+    this.onStoreChange = this.onStoreChange.bind(this);
+    this.searchClicked = this.searchClicked.bind(this);
+  }
+  componentDidMount() {
     SearchStore.on('changed', this.onStoreChange);
-  },
-  componentWillUnmount: function(){
+  }
+  componentWillUnmount() {
     SearchStore.removeListener('changed', this.onStoreChange);
-  },
-  onStoreChange: function(){
-    var artists = SearchStore.getArtists();
+  }
+  onStoreChange (){
+    let artists = SearchStore.getArtists();
     this.setState({artists: artists});
-  },
-  searchClicked: function(artist){
+  }
+  searchClicked(artist){
     SearchActions.search(artist);
-  },
-  render: function() {
+  }
+  render(){
     return (
       <div>
         <div className="row">
@@ -36,6 +38,4 @@ var SearchPage = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = SearchPage;
+};

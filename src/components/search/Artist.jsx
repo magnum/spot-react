@@ -1,11 +1,11 @@
-var React = require('react');
-var Link = require('react-router').Link;
-var _ = require('lodash');
+import React from 'react';
+import {Link} from 'react-router';
+import _ from 'lodash';
 
-var Artist = React.createClass({
-  render: function() {
-    var artist = this.props.info;
-    var image = 'http://fakeimg.pl/64/';
+export default class Artist extends React.Component{
+  render() {
+    let artist = this.props.info;
+    let image = 'http://fakeimg.pl/64/';
     if (artist.images.length > 0){
       image = _.min(artist.images, 'width').url;
     }
@@ -17,6 +17,4 @@ var Artist = React.createClass({
         </div>
     );
   }
-});
-
-module.exports = Artist;
+};

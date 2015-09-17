@@ -1,9 +1,9 @@
-var React = require('react');
-var Artist = require('./Artist');
+import React from 'react';
+import Artist from './Artist';
 
-var ArtistList = React.createClass({
-  render: function() {
-    var artists = this.props.list.map(function(a){
+export default class ArtistList extends React.Component{
+  render() {
+    let artists = this.props.list.map(function(a){
       return <li key={a.id}><Artist info={a} /></li>
     });
     return (
@@ -12,6 +12,4 @@ var ArtistList = React.createClass({
       </ul>
     );
   }
-});
-
-module.exports = ArtistList;
+};
