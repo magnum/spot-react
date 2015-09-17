@@ -23,7 +23,7 @@ export default class SearchBox extends React.Component{
         <div className="form-group col-xs-10">
           <input className="form-control" type="text" value={this.state.value} onChange={this.onChange}/>
         </div>
-        <button className="btn btn-primary" disabled={isDisabled} onClick={this.onSearch}><i className="fa fa-search"></i></button>
+        <button type="button" className="btn btn-primary" disabled={isDisabled} onClick={this.onSearch}><i className="fa fa-search"></i></button>
       </form>
     );
   }
