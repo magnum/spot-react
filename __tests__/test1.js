@@ -1,19 +1,19 @@
-jest.dontMock('../src/react/foods/FoodList.jsx');
+jest.dontMock('../src/components/search/SearchBox.jsx');
+var React = require('react/addons');
+var SearchBox = require('../src/components/search/SearchBox');
 
-describe('Foods', function() {
-  var React = require('react/addons');
+describe('SearchBox', function() {
+  
   var TestUtils = React.addons.TestUtils;
-  var Foods;
 
   beforeEach(function() {
-    Foods = require('../src/react/foods/FoodList');
-    console.log('REQUIRED Foods');
+    console.log('REQUIRED SearchBox');
   });
 
   it('should exists', function() {
-    console.log('START Foods');
-    var foods = TestUtils.renderIntoDocument( <Foods /> );
-    console.log('CREATED Foods');
-    expect(TestUtils.isCompositeComponent(foods)).toBeTruthy();
+    console.log('START SearchBox');
+    var searchBox = TestUtils.renderIntoDocument( <SearchBox /> );
+    console.log('CREATED SearchBox');
+    expect(TestUtils.isCompositeComponent(searchBox)).toBeTruthy();
   });
 });
