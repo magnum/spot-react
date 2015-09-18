@@ -1,32 +1,36 @@
-var React = require('react');
-var Router = require('react-router');
-var ArtistActions = require('./ArtistActions');
-var ArtistStore = require('./ArtistStore');
-var Artist = require('../search/Artist');
+import React from 'react';
+import Router from 'react-router';
+import ArtistActions from './ArtistActions';
+import ArtistStore from './ArtistStore';
+import Artist from '../search/Artist';
 
-var ArtistDetails = React.createClass({
-  mixins: [ Router.State ],
-  getInitialState: function() {
-    return {
+export default class ArtistDetails extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
       artist:{id:0, images:[]},
       albums:[]
     };
-  },
-  componentDidMount: function() {
+    this.onStoreChanged = this.onStoreChanged.bind(this);
+  }
+  contextTypes: {
+    router: Router.PropTypes.router.isRequired
+  }
+  componentDidMount() {
     ArtistStore.on('changed', this.onStoreChanged);
-    var id = this.getParams().id;
+    let id = this.props.params.id;
     ArtistActions.loadArtistDetails(id);
     ArtistActions.loadArtistAlbums(id);
-  },
-  componentWillUnmount: function() {
+  }
+  componentWillUnmount() {
     ArtistStore.removeListener('changed', this.onStoreChanged);
-  },
-  onStoreChanged: function(){
-    var artist = ArtistStore.getArtist();
-    var albums = ArtistStore.getAlbums();
+  }
+  onStoreChanged(){
+    let artist = ArtistStore.getArtist();
+    let albums = ArtistStore.getAlbums();
     this.setState({artist: artist, albums: albums });
-  },
-  render: function() {
+  }
+  render() {
     return (
       <div>
         <div className="row">
@@ -41,13 +45,10 @@ var ArtistDetails = React.createClass({
     );
   }
 
-});
+};
 
-var Album = React.createClass({
-  render: function(){
-    console.log(this.props.info);
+class Album extends React.Component{
+  render(){
     return <div>{this.props.info.name}</div>
   }
-})
-
-module.exports = ArtistDetails;
+}
