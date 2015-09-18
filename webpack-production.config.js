@@ -8,7 +8,8 @@ module.exports = {
       './src/index.html'
     ],
     plugins: [
-      new ExtractTextPlugin('app.css', {allChunks: true})
+      new ExtractTextPlugin('app.css', {allChunks: true}),
+      new webpack.optimize.UglifyJsPlugin({minimize: true})
     ],
     output: {
         filename: '/js/app.js',
@@ -23,7 +24,7 @@ module.exports = {
         loaders: ["file?name=[name].[ext]"],
       },{
         test: /\.jsx?$/,
-        loaders: ['babel'], 
+        loaders: ['babel'],
         include: path.join(__dirname, 'src')
       },{
         test: /\.scss$/,
