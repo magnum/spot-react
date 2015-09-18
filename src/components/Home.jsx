@@ -1,8 +1,8 @@
-var React = require('react');
-var Router = require('react-router');
+import React from 'react';
+import Router from 'react-router';
 
-var Home = React.createClass({
-  render: function() {
+export default class Home extends React.Component{
+  render() {
     return (
       <div>
         <h3>Home page</h3>
@@ -14,6 +14,4 @@ var Home = React.createClass({
       </div>
       );
   }
-});
-
-module.exports = Home;
+};
