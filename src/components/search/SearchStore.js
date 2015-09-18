@@ -1,18 +1,18 @@
-var dispatcher = require('../../utils/AppDispatcher');
-var createStore = require('../../utils/createStore');
+import dispatcher from '../../utils/AppDispatcher';
+import createStore from '../../utils/createStore';
 
-var currentState = {};
+let currentState = {};
 
-var SearchStore = createStore({
-  getArtists: function() {
+let SearchStore = createStore({
+  getArtists() {
     return currentState;
   }
 });
 
-var actionMap = {
-  'SEARCH_COMPLETED': function(artists){ currentState = artists; }
+let actionMap = {
+  'SEARCH_COMPLETED': artists => { currentState = artists; }
 };
 
 dispatcher.registerActions(actionMap, SearchStore);
 
-module.exports = SearchStore;
+export default SearchStore;
