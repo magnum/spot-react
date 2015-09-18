@@ -1,23 +1,23 @@
-var dispatcher = require('../../utils/AppDispatcher');
-var createStore = require('../../utils/createStore');
+import dispatcher from '../../utils/AppDispatcher';
+import createStore  from '../../utils/createStore';
 
-var currentArtist = {};
-var currentArtistAlbums = [];
+let currentArtist = {};
+let currentArtistAlbums = [];
 
-var ArtistStore = createStore({
-  getArtist: function() {
+let ArtistStore = createStore({
+  getArtist() {
     return currentArtist;
   },
-  getAlbums: function(){
+  getAlbums(){
     return currentArtistAlbums;
   }
 });
 
 var actionMap = {
-  'LOAD_ARTIST_COMPLETED': function(artist){ currentArtist = artist; },
-  'LOAD_ALBUMS_COMPLETED': function(albums){ currentArtistAlbums = albums; }
+  'LOAD_ARTIST_COMPLETED': artist => { currentArtist = artist; },
+  'LOAD_ALBUMS_COMPLETED': albums => { currentArtistAlbums = albums; }
 };
 
 dispatcher.registerActions(actionMap, ArtistStore);
 
-module.exports = ArtistStore;
+export default ArtistStore;

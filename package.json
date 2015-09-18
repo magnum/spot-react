@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "A sample React.js application that uses Spotify API as backend",
   "scripts": {
-    "build": "webpack --progress --profile --colors",
+    "build": "webpack --config webpack-production.config.js  --progress --profile --colors",
     "dev": "webpack-dev-server --hot --inline --devtool eval-source --progress --colors",
     "test": "echo \"No unit tests and e2e tests yet\" && exit 1"
   },

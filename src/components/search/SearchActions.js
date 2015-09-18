@@ -1,14 +1,16 @@
-var api = require('../../utils/api')();
-var dispatcher = require('../../utils/AppDispatcher');
+import apiBuilder from '../../utils/api';
+import dispatcher from '../../utils/AppDispatcher';
 
-var serverActions = {
+let api = apiBuilder();
+
+let serverActions = {
   searchCompleted: dispatcher.build('SEARCH_COMPLETED')
 };
 
-module.exports = {
-  search: function(what){
-    api.get('/search?type=artist&q=' + what, function(err, res){
-      var artists = res.body.artists.items;
+export default {
+  search(what){
+    api.get('/search?type=artist&q=' + what, (err, res) => {
+      let artists = res.body.artists.items;
       serverActions.searchCompleted(artists);
     });
   }

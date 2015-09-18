@@ -1,10 +1,7 @@
-var React = require('react');
-var ReactRouter = require('react-router');
-var DefaultRoute = ReactRouter.DefaultRoute;
-var Route = ReactRouter.Route;
+import React from 'react';
+import {DefaultRoute, Route} from 'react-router';
 
-
-function getRoutes(App){
+export default function getRoutes(App){
   var routes = (
     <Route name="app" path="/" handler={App}>
       <DefaultRoute name="home" handler={require('./Home')} />
@@ -15,5 +12,3 @@ function getRoutes(App){
     </Route>);
   return routes;
 }
-
-module.exports = getRoutes;
