@@ -9,7 +9,7 @@ export default class ArtistDetails extends React.Component{
     super(props);
     this.state = {
       artist:{id:0, images:[]},
-      albums:[]
+      tracks:[]
     };
     this.onStoreChanged = this.onStoreChanged.bind(this);
   }
@@ -20,15 +20,15 @@ export default class ArtistDetails extends React.Component{
     ArtistStore.on('changed', this.onStoreChanged);
     let id = this.props.params.id;
     ArtistActions.loadArtistDetails(id);
-    ArtistActions.loadArtistAlbums(id);
+    ArtistActions.loadTopTracks(id);
   }
   componentWillUnmount() {
     ArtistStore.removeListener('changed', this.onStoreChanged);
   }
   onStoreChanged(){
     let artist = ArtistStore.getArtist();
-    let albums = ArtistStore.getAlbums();
-    this.setState({artist: artist, albums: albums });
+    let tracks = ArtistStore.getTopTracks();
+    this.setState({artist: artist, tracks: tracks });
   }
   render() {
     return (
@@ -38,7 +38,7 @@ export default class ArtistDetails extends React.Component{
         </div>
         <div className="row">
           <ul>
-            {this.state.albums.map(function(a) { return <li key={a.id}><Album info={a}/></li>})}
+            {this.state.tracks.map(function(t) { return <li key={t.id}><Track info={t}/></li>})}
           </ul>
         </div>
       </div>
@@ -47,7 +47,7 @@ export default class ArtistDetails extends React.Component{
 
 };
 
-class Album extends React.Component{
+class Track extends React.Component{
   render(){
     return <div>{this.props.info.name}</div>
   }
