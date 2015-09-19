@@ -10,17 +10,17 @@ let serverActions = {
 
 export default {
   loadArtistDetails(id){
-    api.get('/artists/' + id, (err, res) => {
+    api.get(`/artists/${id}`, (err, res) => {
       serverActions.loadArtistCompleted(res.body);
     });
   },
   loadArtistAlbums(id){
-    api.get('/artists/' + id + '/albums?limit=50', (err, res)=> {
+    api.get(`/artists/${id}/albums?limit=50`, (err, res)=> {
       serverActions.loadAlbumsCompleted(res.body.items);
     });
   },
   loadTopTracks(id){
-    api.get('/artists/' + id + '/top-tracks?country=IT', (err, res)=> {
+    api.get(`/artists/${id}/top-tracks?country=IT`, (err, res)=> {
       serverActions.loadTopTracksCompleted(res.body.tracks);
     });
   }
