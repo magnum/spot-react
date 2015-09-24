@@ -31,7 +31,7 @@ var Home = React.createClass({
 var DateItem = React.createClass({
   render: function(){
     var date = this.props.value;
-    return <li>{date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()}</li>
+    return <li>{date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</li>
   }
 });
 
