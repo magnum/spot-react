@@ -27,11 +27,13 @@ module.exports = {
         loaders: ['file?name=[name].[ext]'],
       },{
         test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel'], 
+        loaders: ['react-hot', 'babel'],
         include: path.join(__dirname, 'src')
-      },
-      {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/},
-      {
+      },{
+        test: /\.js$/,
+        loader: "eslint-loader",
+        exclude: /node_modules/
+      },{
         test: /\.scss$/,
         loader: 'style!css!sass'
       },{

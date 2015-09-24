@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Home = React.createClass({
+var Page2 = React.createClass({
   render: function() {
     return (
       <div>
@@ -10,4 +10,4 @@ var Home = React.createClass({
   }
 });
 
-module.exports = Home;
+module.exports = Page2;
