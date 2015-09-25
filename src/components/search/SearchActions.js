@@ -9,7 +9,7 @@ let serverActions = {
 
 export default {
   search(what){
-    api.get(`/search?type=artist&q={$what}`, (err, res) => {
+    api.get(`/search?type=artist&q=${what}`, (err, res) => {
       let artists = res.body.artists.items;
       serverActions.searchCompleted(artists);
     });
