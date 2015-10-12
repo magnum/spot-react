@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchActions from './SearchActions';
-import SearchStore from './SearchStore';
+import SearchStore from '../GlobalStore';
 import _ from 'lodash';
 import SearchBox from './SearchBox';
 import ArtistList from './ArtistList';
@@ -20,8 +20,8 @@ export default class SearchPage extends React.Component{
     SearchStore.removeListener('changed', this.onStoreChange);
   }
   onStoreChange (){
-    let artists = SearchStore.getArtists();
-    this.setState({artists: artists});
+    let state = SearchStore.getState();
+    this.setState({artists: state.artists});
   }
   searchClicked(artist){
     SearchActions.search(artist);
