@@ -13,7 +13,7 @@ export default class Artist extends React.Component{
     return (
         <div>
           <img src={image} className="img-thumbnail" />
-          <span><Link to="artist-details" params={{id: artist.id}}> {artist.name}</Link></span>
+          <span><Link to={`/artist/${artist.id}`}>{artist.name}</Link></span>
         </div>
     );
   }
